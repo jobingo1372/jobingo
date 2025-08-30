@@ -1,7 +1,16 @@
 from flask import Flask, render_template, request, redirect, url_for
 import os, csv
 
+from flask import Flask
 app = Flask(__name__)
+
+
+@app.route("/")
+def home():
+    return "Jobingo Live!"
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8000, debug=True)
 
 # ---------------- Resume Upload ----------------
 # Uploads folder
