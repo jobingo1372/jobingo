@@ -6,12 +6,10 @@ app = Flask(__name__)
 
 
 @app.route("/")
+@app.route("/home")
 def home():
     return "Jobingo Live"
 
-@app.route("/about")
-def about():
-    return "About Jobingo"
 
 
 if __name__ == "__main__":
