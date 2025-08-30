@@ -137,10 +137,10 @@ def apply_job(title):
     return render_template("apply_job.html", title=title)
 
 
-# ---------------- Home ----------------
-@app.route("/")
-def home():
-    return render_template("index.html")
+# # ---------------- Home ----------------
+# @app.route("/")
+# def home():
+#     return render_template("index.html")
 
 
 if __name__ == "__main__":
