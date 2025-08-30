@@ -5,11 +5,45 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route("/")
-@app.route("/home")
-def home():
-    return "Jobingo Live"
+# @app.route("/")
+# @app.route("/home")
+# def home():
+#     return "Jobingo Live"
 
+
+@app.route("/about")
+def about():
+    return "About Jobingo"
+
+@app.route("/jobs")
+def jobs():
+    return "Job Listings"
+
+@app.route("/upload")
+def upload():
+    return "Upload Resume"
+
+from flask import render_template
+
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+@app.route("/about_us")
+def about_us():
+    return render_template("about_us.html")
+
+@app.route("/post_resume")
+def post_resume():
+    return render_template("post_resume.html")
+
+@app.route("/view_jobs")
+def view_jobs():
+    return render_template("view_jobs.html")
+
+@app.route("/contact_us")
+def contact_us():
+    return render_template("contact_us.html")
 
 
 if __name__ == "__main__":
