@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs</title>
+    <link rel="stylesheet" href="jstyle.css">
+</head>
+<body>
+    
+    <!-- NAVBAR_POST_RESUME-->
+
+    <div class="navbar">
+        <!-- <div class="logo"></div> -->
+            <img src="logo_3.png">
+    <div class="nav_content_page3">
+        <a href="index.html">HOME</a>
+        <a href="about_us.html">ABOUT US</a>
+        <a href="post_resume.html">POST RESUME</a>
+        <a href="jobs.html">JOBS</a>
+        <a href="contact_us.html">CONTACT US</a></div>
+    </div>
+    
+    <div class="panel">
+        Jobs
+
+    </div>
+
+    <!--  HERO SECTION_POST RESUME -->
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jobs - Jobingo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h2 { color: #333; }
+    form { margin-bottom: 30px; }
+    input, textarea {
+      display: block; margin: 10px 0; padding: 8px; width: 100%;
+      border: 1px solid #ccc; border-radius: 5px;
+    }
+    button {
+      background: #007BFF; color: white; border: none; padding: 10px 15px;
+      border-radius: 5px; cursor: pointer;
+    }
+    button:hover { background: #0056b3; }
+    .job-card {
+      border: 1px solid #ddd; padding: 15px; margin-bottom: 15px;
+      border-radius: 8px; background: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+
+  <!DOCTYPE html>
+<html>
+<head>
+    <title>Available Jobs</title>
+</head>
+<body>
+    <h2>Available Jobs</h2>
+
+    {% if jobs %}
+        <ul>
+        {% for job in jobs %}
+            <li>
+                <b>{{ job['Title'] }}</b> at {{ job['Company'] }} ({{ job['Location'] }})<br>
+                {{ job['Description'] }}
+            </li>
+            <hr>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No jobs posted yet.</p>
+    {% endif %}
+
+    <br>
+    <a href="{{ url_for('post_job') }}">Post a New Job</a>
+</body>
+</html>
+
+</body>
+</html>
+
+
+
+</body>
+</html>

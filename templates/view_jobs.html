@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Available Jobs</title>
+</head>
+<body>
+    <h2>Available Jobs</h2>
+
+    {% if jobs %}
+        {% for job in jobs %}
+            <div style="border:1px solid #ddd; padding:15px; margin-bottom:15px;">
+                <h3>{{ job['Title'] }} ({{ job['Role'] }})</h3>
+                <p><b>Company:</b> {{ job['Company'] }}</p>
+                <p><b>Location:</b> {{ job['Location'] }}</p>
+                <p><b>Industry:</b> {{ job['Industry'] }}</p>
+                <p><b>Experience:</b> {{ job['Experience'] }}</p>
+                <p><b>Salary:</b> {{ job['Salary'] }}</p>
+                <p><b>Education:</b> {{ job['Education'] }}</p>
+                <p>{{ job['Description'] }}</p>
+
+                <!-- Apply Button -->
+                <a href="{{ url_for('post_resume') }}">
+                    <button>Apply Here</button>
+                </a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No jobs posted yet.</p>
+    {% endif %}
+
+    <br>
+    <a href="{{ url_for('post_job') }}">Post a New Job</a>
+</body>
+</html>
