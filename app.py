@@ -11,40 +11,37 @@ app = Flask(__name__)
 #     return "Jobingo Live"
 
 
-@app.route("/about")
-def about():
-    return "About Jobingo"
-
-@app.route("/jobs")
-def jobs():
-    return "Job Listings"
-
-@app.route("/upload")
-def upload():
-    return "Upload Resume"
-
-from flask import render_template
-
 @app.route("/")
 def index():
     return render_template("index.html")
 
-@app.route("/about_us")
+# About Us page
+@app.route("/about")
 def about_us():
     return render_template("about_us.html")
 
-@app.route("/post_resume")
+# Post Resume page
+@app.route("/post_resume", methods=["GET", "POST"])
 def post_resume():
+    if request.method == "POST":
+        # Handle file upload here
+        # Example: save file to 'uploads/' folder
+        file = request.files['resume']
+        file.save(f"uploads/{file.filename}")
+        return redirect(url_for('view_jobs'))
     return render_template("post_resume.html")
 
+# View Jobs page
 @app.route("/view_jobs")
 def view_jobs():
-    return render_template("view_jobs.html")
+    # Here you can fetch job listings from database
+    jobs = []  # Replace with actual data
+    return render_template("view_jobs.html", jobs=jobs)
 
-@app.route("/contact_us")
+# Contact Us page
+@app.route("/contact")
 def contact_us():
     return render_template("contact_us.html")
-
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000, debug=True)
