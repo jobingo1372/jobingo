@@ -20,15 +20,6 @@ def about():
     return render_template("about_us.html")
 
 
-
-@app.route("/post_job")
-def post_job():
-    return render_template("post_job.html")
-
-@app.route("/view_jobs")
-def view_jobs():
-    return render_template("view_jobs.html")
-
 @app.route("/contact")
 def contact():
     return render_template("contact_us.html")
