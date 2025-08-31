@@ -37,7 +37,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 # ========================
 # POST RESUME
 # ========================
-@app.route('/post-resume', methods=['GET', 'POST'])
+@app.route('/post_resume', methods=['GET', 'POST'])
 def post_resume():
     if request.method == 'POST':
         name = request.form.get('name')
