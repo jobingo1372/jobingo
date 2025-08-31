@@ -37,7 +37,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 # ========================
 # POST RESUME
 # ========================
-@app.route('/post-resume', methods=['GET', 'POST'])
+@app.route('/post_resume', methods=['GET', 'POST'])
 def post_resume():
     if request.method == 'POST':
         name = request.form.get('name')
@@ -72,7 +72,7 @@ if __name__ == "__main__":
 
 
 # ---------------- Job Posting ----------------
-@app.route("/post-job", methods=["GET", "POST"])
+@app.route("/post_job", methods=["GET", "POST"])
 def post_job():
     if request.method == "POST":
         title = request.form.get("title")
@@ -102,7 +102,7 @@ def post_job():
 
 
 # ---------------- View Jobs ----------------
-@app.route("/jobs")
+@app.route("/view_jobs")
 def view_jobs():
     jobs = []
     if os.path.exists("jobs.csv"):
