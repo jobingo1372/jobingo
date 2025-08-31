@@ -12,13 +12,14 @@
 
     <div class="navbar">
         <!-- <div class="logo"></div> -->
-            <img src="logo_3.png">
+            <img src="{{ url_for('static', filename='images/logo_3.png') }}" alt="Logo">
     <div class="nav_content_page2">
-        <a href="index.html">HOME</a>
-        <a href="about_us.html">ABOUT US</a>
-        <a href="post_resume.html">POST RESUME</a>
-        <a href="jobs.html">JOBS</a>
-        <a href="contact_us.html">CONTACT US</a></div>
+        <a href="{{ url_for('index') }}">HOME</a>
+        <a href="{{ url_for('about') }}">ABOUT US</a>
+        <a href="{{ url_for('post_resume') }}">POST RESUME</a>
+        <a href="{{ url_for('view_jobs') }}">JOBS</a>
+        <a href="{{ url_for('contact') }}">CONTACT US</a>
+        <a href="{{ url_for('post_job') }}">POST JOB</a>
     </div>
     
     <div class="panel">
