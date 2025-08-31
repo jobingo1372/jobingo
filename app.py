@@ -15,36 +15,29 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-# About Us page
 @app.route("/about")
-def about_us():
+def about():
     return render_template("about_us.html")
 
-# Post Resume page
-@app.route("/post_resume", methods=["GET", "POST"])
+@app.route("/post_resume")
 def post_resume():
-    if request.method == "POST":
-        # Handle file upload here
-        # Example: save file to 'uploads/' folder
-        file = request.files['resume']
-        file.save(f"uploads/{file.filename}")
-        return redirect(url_for('view_jobs'))
     return render_template("post_resume.html")
 
-# View Jobs page
+@app.route("/post_job")
+def post_job():
+    return render_template("post_job.html")
+
 @app.route("/view_jobs")
 def view_jobs():
-    # Here you can fetch job listings from database
-    jobs = []  # Replace with actual data
-    return render_template("view_jobs.html", jobs=jobs)
+    return render_template("view_jobs.html")
 
-# Contact Us page
 @app.route("/contact")
-def contact_us():
+def contact():
     return render_template("contact_us.html")
 
+# ---------- Main ----------
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000, debug=True)
+    app.run(debug=True)
 
 # ---------------- Resume Upload ----------------
 # Uploads folder
