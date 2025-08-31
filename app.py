@@ -19,9 +19,7 @@ def index():
 def about():
     return render_template("about_us.html")
 
-@app.route("/post_resume")
-def post_resume():
-    return render_template("post_resume.html")
+
 
 @app.route("/post_job")
 def post_job():
@@ -48,33 +46,33 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 # ========================
 # POST RESUME
 # ========================
-# @app.route('/post-resume', methods=['GET', 'POST'])
-# def post_resume():
-#     if request.method == 'POST':
-#         name = request.form.get('name')
-#         email = request.form.get('email')
-#         job_title = request.form.get('job_title', '')  # hidden field
+@app.route('/post-resume', methods=['GET', 'POST'])
+def post_resume():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        email = request.form.get('email')
+        job_title = request.form.get('job_title', '')  # hidden field
 
-#         file = request.files.get('resume')
+        file = request.files.get('resume')
 
-#         if file and file.filename != '':
-#             filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-#             file.save(filepath)
+        if file and file.filename != '':
+            filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+            file.save(filepath)
 
-#             file_exists = os.path.isfile('resumes.csv')
-#             with open('resumes.csv', 'a', newline='', encoding='utf-8') as f:
-#                 writer = csv.writer(f)
-#                 if not file_exists:
-#                     writer.writerow(['Name', 'Email', 'Job Title', 'Resume File'])
-#                 writer.writerow([name, email, job_title, file.filename])
+            file_exists = os.path.isfile('resumes.csv')
+            with open('resumes.csv', 'a', newline='', encoding='utf-8') as f:
+                writer = csv.writer(f)
+                if not file_exists:
+                    writer.writerow(['Name', 'Email', 'Job Title', 'Resume File'])
+                writer.writerow([name, email, job_title, file.filename])
 
-#             return "✅ Resume uploaded successfully!"
+            return "✅ Resume uploaded successfully!"
 
-#         return "❌ Please select a file!"
+        return "❌ Please select a file!"
     
     # agar GET request hai to form show karega
-    # job_title = request.args.get("job_title", "")
-    # return render_template('post_resume.html', job_title=job_title)
+    job_title = request.args.get("job_title", "")
+    return render_template('post_resume.html', job_title=job_title)
 
 
 if __name__ == "__main__":
