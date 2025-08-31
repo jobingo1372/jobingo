@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jobingo</title>
-    <link rel="stylesheet" href="jstyle.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jstyle.css') }}">
 </head>
 <body>
     <!-- Navbar -->
 
     <div class="navbar">
         <!-- <div class="logo"></div> -->
-            <img src="logo_3.png">
+            <img src="{{ url_for('static', filename='images/logo_3.png') }}" alt="Logo">
     <div class="nav_content">
         <a href="index.html">HOME</a>
         <a href="about_us.html">ABOUT US</a>
